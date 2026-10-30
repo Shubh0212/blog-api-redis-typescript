@@ -9,3 +9,8 @@ export const signupSchema = z.object({
   email: z.string().trim().toLowerCase().email("Invalid email"),
   password: z.string().min(8, "Password must be at least 8 characters"),
 });
+
+export const loginSchema = z.object({
+  email: z.string().trim().toLowerCase().email("Invalid email"),
+  password: z.string().min(1, "Password is required"),
+});
