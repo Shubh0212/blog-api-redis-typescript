@@ -7,4 +7,6 @@ export const userRepository = {
   findByEmailWithPassword: (email: string) =>
     User.findOne({ email }).select("+password"),
   findById: (id: string) => User.findById(id),
+  updateName: (id: string, name: string) =>
+    User.findByIdAndUpdate(id, { name }, { new: true, runValidators: true }),
 };
