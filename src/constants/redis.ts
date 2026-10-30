@@ -17,3 +17,6 @@ export const RedisTTL = {
   stats: 5 * 60, // 5 minutes
   loginFail: 15 * 60, // 15 minutes
 };
+
+export const SESSION_TTL_SECONDS = 7 * 24 * 60 * 60; // 7 days
+export const LOGIN_MAX_FAILS = 5;
