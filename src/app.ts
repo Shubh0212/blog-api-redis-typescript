@@ -1,16 +1,10 @@
-import express, { Request, Response, NextFunction } from "express";
+import express from "express";
+import routes from "./routes";
+import { errorHandler } from "./middlewares/errorHandler";
 
 const app = express();
 app.use(express.json());
-
-app.get("/api/health", (_req, res) => {
-  res.json({ status: "ok" });
-});
-
-// global error handler (must be last)
-app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
-  console.error(err);
-  res.status(500).json({ success: false, message: "Internal server error" });
-});
+app.use("/api", routes);
+app.use(errorHandler); // must be last
 
 export default app;
